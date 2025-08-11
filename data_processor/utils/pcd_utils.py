@@ -38,3 +38,39 @@ def storePly(path, xyz, rgb, mask):
     vertex_element = PlyElement.describe(elements, 'vertex')
     ply_data = PlyData([vertex_element])
     ply_data.write(path)
+
+def storePlyXYZ(path, xyz):
+    # set rgb to 0 - 255
+    # Define the dtype for the structured array
+    dtype = [
+        ('x', 'f4'), ('y', 'f4'), ('z', 'f4')
+    ]
+    
+    elements = np.empty(xyz.shape[0], dtype=dtype)
+    elements[:] = list(map(tuple, xyz))
+
+    # Create the PlyData object and write to file
+    vertex_element = PlyElement.describe(elements, 'vertex')
+    ply_data = PlyData([vertex_element])
+    ply_data.write(path)
+
+def storePlyXYZRGB(path, xyz, rgb):
+    # set rgb to 0 - 255
+    if rgb.max() <= 1. and rgb.min() >= 0:
+        rgb = np.clip(rgb * 255, 0., 255.)
+
+        
+    # Define the dtype for the structured array
+    dtype = [
+        ('x', 'f4'), ('y', 'f4'), ('z', 'f4'),
+        ('red', 'u1'), ('green', 'u1'), ('blue', 'u1')
+    ]
+    
+    elements = np.empty(xyz.shape[0], dtype=dtype)
+    attributes = np.concatenate((xyz, rgb), axis=1)
+    elements[:] = list(map(tuple, attributes))
+
+    # Create the PlyData object and write to file
+    vertex_element = PlyElement.describe(elements, 'vertex')
+    ply_data = PlyData([vertex_element])
+    ply_data.write(path)

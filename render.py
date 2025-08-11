@@ -80,14 +80,19 @@ def run_diffusion():
     cfg.render.save_video = True
 
     with torch.no_grad():
+        print("create scene start")
         scene = create_scene()
+        print("get novel view camera and train cameras")
         novel_cameras = scene.getNovelViewCameras()
         train_cameras = scene.getTrainCameras()
-
+        print(novel_cameras)
+        print(train_cameras)
+        print("get diffusion runner")
         diffusionrunner = getDiffusionRunner(scene)
 
         # Process novel view sequences
         if not cfg.eval.skip_novel:
+            # novel view id: eg: shift 1m or 2m or 3m
             novel_view_ids = list(set([camera.meta['novel_view_id'] for camera in novel_cameras]))
 
             for novel_view_id in novel_view_ids:
