@@ -11,8 +11,8 @@ from waymo_helpers import load_calibration, load_track, image_filename_to_cam, i
 from utils.pcd_utils import storePly, fetchPly
 from utils.box_utils import bbox_to_corner3d, inbbox_points
 from utils.base_utils import transform_points_numpy
-from moge.model import MoGeModel # type: ignore
-moge_model = MoGeModel.from_pretrained("Ruicheng/moge-vitl").cuda()
+from moge.model.v2 import MoGeModel # type: ignore
+moge_model = MoGeModel.from_pretrained("/iag_ad_01/ad/yuanweizhong/ckpt/models--Ruicheng--moge-2-vitl/snapshots/39c4d5e957afe587e04eec59dc2bcc3be5ecd968/model.pt").cuda()
 
 from tqdm import tqdm
 
@@ -50,8 +50,9 @@ def save_lidar(seq_save_dir):
     
     image_dir = os.path.join(seq_save_dir, 'images')
     lidar_depth_dir = os.path.join(seq_save_dir, 'lidar/depth')
-    num_frames = len(sorted([os.path.join(image_dir, x) for x in os.listdir(image_dir) if x.endswith('.png')])) // 5
+    num_frames = len(sorted([os.path.join(image_dir, x) for x in os.listdir(image_dir) if x.endswith('.jpg')])) 
     
+    # breakpoint()
     moge_dir = os.path.join(seq_save_dir, 'moge')
     os.makedirs(moge_dir, exist_ok=True)
     moge_dir_background = os.path.join(moge_dir, 'background')
@@ -73,7 +74,7 @@ def save_lidar(seq_save_dir):
     
     
     for frame_id in tqdm(range(num_frames)):
-        image_path = os.path.join(image_dir, f'{frame_id:06d}_0.png')
+        image_path = os.path.join(image_dir, f'{frame_id:06d}_0.jpg')
         lidar_depth_path = os.path.join(lidar_depth_dir, f'{frame_id:06d}_0.npz')
         lidar_depth = np.load(lidar_depth_path)
         lidar_depth_mask = lidar_depth['mask'].astype(np.bool_)
@@ -128,7 +129,7 @@ def save_lidar(seq_save_dir):
             height = lidar_box['height']
             width = lidar_box['width']
             length = lidar_box['length']
-            pose_idx = trajectory[track_id]['frames'].index(frame_id)
+            pose_idx = trajectory[track_id]['frames'].index(f"{frame_id:06d}")
             pose_vehicle = trajectory[track_id]['poses_vehicle'][pose_idx]
 
             xyzs_homo = np.concatenate([xyzs, np.ones_like(xyzs[..., :1])], axis=-1)
@@ -176,7 +177,7 @@ def save_lidar(seq_save_dir):
 
 def check_existing(scene_dir):
     image_dir = os.path.join(scene_dir, 'images')
-    num_frames = len(os.listdir(image_dir)) // 5
+    num_frames = len(os.listdir(image_dir)) 
     moge_background_dir = os.path.join(scene_dir, 'moge/background')
     num_pcds = len(os.listdir(moge_background_dir))
     if num_frames == num_pcds:
@@ -192,14 +193,14 @@ def main():
     
     args = parser.parse_args()
     data_dir = args.data_dir
-    scene_ids = sorted([x for x in os.listdir(data_dir)])
-    for scene_id in scene_ids:
-        print(f'Processing scene {scene_id}...')
-        scene_dir = os.path.join(data_dir, scene_id)
-        if args.skip_existing and check_existing(scene_dir):
-            print(f'moge pcd exists for {scene_id}, skipping...')
-            continue
-        save_lidar(scene_dir)
+    # scene_ids = sorted([x for x in os.listdir(data_dir)])
+    # for scene_id in scene_ids:
+    #     print(f'Processing scene {scene_id}...')
+    #     scene_dir = os.path.join(data_dir, scene_id)
+    #     if args.skip_existing and check_existing(scene_dir):
+    #         print(f'moge pcd exists for {scene_id}, skipping...')
+    #         continue
+    save_lidar(data_dir)
         
 if __name__ == '__main__':
     main()

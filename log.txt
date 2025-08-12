@@ -1,0 +1,789 @@
+configs/waymo_val_121.yaml
+./configs/sensetime_val.yaml
+Rendering /iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction
+create scene start
+box scale:  1.0
+08:01:32 Preparing cameras and images 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81/81  0:00:04 < 0:00:00 16.88 it/s                                                               sensetime_readers.py:85
+
+making novel view cameras
+08:01:32 Skipping 2/162 novel view cameras                                                                                                                                            novel_view_utils.py:121
+08:01:32 Making novel view cameras 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162/162  0:00:00 < 0:00:00   ?  it/s                                                                  novel_view_utils.py:49
+
+Scene extent: 20.0
+Loading Training Cameras
+08:01:36  100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41/41  0:00:03 < 0:00:00 11.08 it/s                                                                                               camera_utils.py:177
+
+Loading Test Cameras
+08:01:40  100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40/40  0:00:03 < 0:00:00 11.03 it/s                                                                                               camera_utils.py:177
+
+Loading Novel View Cameras
+08:01:50  100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162/162  0:00:09 < 0:00:00 16.57 it/s                                                                                             camera_utils.py:177
+
+Diffusion model loaded
+Num frames: 25
+Loading model from video_diffusion/ckpts/vista_condition_high_res_mix_v2.safetensors
+Initializing Waymo Point Cloud Processor
+08:02:21 Reading Background ply 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81/81  0:00:01 < 0:00:00 58.88 it/s                                                                   sensetime_processor.py:63
+
+Reading Actor ply
+Rendering LiDAR conditions
+08:03:11 Rendering LiDAR condition 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 243/243  0:00:48 < 0:00:00 3.416 it/s                                                                  base_processor.py:134
+
+get novel view camera and train cameras
+[
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397688d90>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0d60>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397688dc0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0fd0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397688d30>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a07f0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0670>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0ca0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0760>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0d30>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0850>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0340>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0790>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0520>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0550>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a04c0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0730>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2370>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2130>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a09d0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2400>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976a0af0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f22b0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f22e0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2730>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2520>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f27f0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2700>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f23d0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f28e0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f25b0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f29a0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2a90>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f25e0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2b50>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2a60>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2c10>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2820>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2040>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2d00>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2070>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2dc0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2e80>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2340>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2f40>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2100>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2580>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2af0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2d90>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2970>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2a30>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2d30>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2fd0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2940>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc370>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2760>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc130>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2e20>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc280>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2f70>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2eb0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975f2ca0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc6a0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc160>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc790>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc100>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc4c0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc880>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc5e0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc940>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fca00>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc1f0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcac0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc9d0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcbb0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc5b0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc1c0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcca0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc340>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcd60>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcbe0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fce20>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcf10>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc7c0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcfd0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcee0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc520>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc040>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcd00>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcb50>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcf40>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc8e0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fce80>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcd90>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a400>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a0d0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a4c0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcc70>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a220>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fc670>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a340>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3975fcdc0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a730>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a670>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a7f0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a700>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a8b0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a310>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a5b0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a9d0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a640>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760aa90>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760ab50>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a190>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760ac10>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760ab20>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760ad00>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a130>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a280>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760adf0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a490>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760aeb0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760ad30>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760af70>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a8e0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a820>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760afd0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a7c0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760af10>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760aaf0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760adc0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a3d0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760ad90>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760ad60>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760ac40>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760a970>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39760abe0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976143d0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614610>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614250>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614280>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614700>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614370>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976147f0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976148b0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976140d0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614970>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614880>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614a30>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614490>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614340>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614b50>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614190>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614c10>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614cd0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614310>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614d90>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614ca0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614e50>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614100>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614430>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397614f70>
+]
+[
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397701400>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39766f5b0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e2e0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e460>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39766f070>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e640>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e610>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e7c0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e1c0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e6a0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e700>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e1f0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e850>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e9d0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767eb50>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767edc0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e790>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767eeb0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e130>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e070>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767efa0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767ec40>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767eac0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e970>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e2b0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767edf0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e340>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e9a0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767ef10>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767ecd0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc39767e730>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397688040>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397688340>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397688670>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397688100>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397688790>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976881c0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397688250>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976887f0>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc397688940>,
+    <street_gaussian.utils.camera_utils.Camera object at 0x7fc3976885b0>
+]
+get diffusion runner
+Window size: 4, sample frames: 25, step: 21
+Running diffusion for novel view sequence 2.0
+Running diffusion for novel view sequence 2.0
+08:03:11 Rendering LiDAR condition 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81/81  0:00:00 < 0:00:00   ?  it/s                                                                     base_processor.py:134
+
+draw condition camera img
+/iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction/condition
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000080_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000080_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000081_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000082_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000083_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000084_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000085_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000086_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000087_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000088_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000089_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000090_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000091_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000092_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000093_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000094_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000095_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000096_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000097_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000098_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000099_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000100_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000101_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000102_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000103_0.png
+[
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000080_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000080_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000081_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000082_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000083_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000084_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000085_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000086_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000087_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000088_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000089_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000090_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000091_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000092_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000093_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000094_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000095_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000096_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000097_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000098_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000099_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000100_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000101_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000102_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000103_0.png'
+]
+draw condition camera img
+/iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction/condition
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000099_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000100_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000101_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000102_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000103_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000104_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000105_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000106_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000107_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000108_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000109_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000110_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000111_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000112_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000113_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000114_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000115_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000116_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000117_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000118_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000119_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000120_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000121_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000122_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000123_0.png
+[
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000099_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000100_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000101_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000102_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000103_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000104_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000105_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000106_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000107_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000108_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000109_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000110_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000111_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000112_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000113_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000114_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000115_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000116_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000117_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000118_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000119_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000120_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000121_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000122_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000123_0.png'
+]
+draw condition camera img
+/iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction/condition
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000119_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000120_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000121_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000122_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000123_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000124_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000125_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000126_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000127_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000128_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000129_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000130_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000131_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000132_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000133_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000134_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000135_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000136_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000137_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000138_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000139_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000140_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000141_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000142_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000143_0.png
+[
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000119_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000120_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000121_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000122_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000123_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000124_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000125_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000126_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000127_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000128_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000129_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000130_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000131_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000132_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000133_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000134_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000135_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000136_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000137_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000138_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000139_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000140_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000141_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000142_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000143_0.png'
+]
+draw condition camera img
+/iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction/condition
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000137_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000137_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000138_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000139_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000140_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000141_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000142_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000143_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000144_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000145_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000146_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000147_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000148_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000149_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000150_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000151_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000152_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000153_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000154_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000155_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000156_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000157_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000158_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000159_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000160_0.png
+[
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000137_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000137_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000138_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000139_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000140_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000141_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000142_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000143_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000144_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000145_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000146_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000147_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000148_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000149_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000150_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000151_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000152_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000153_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000154_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000155_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000156_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000157_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000158_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000159_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000160_0.png'
+]
+draw condition camera img
+/iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction/condition
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000137_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000137_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000138_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000139_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000140_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000141_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000142_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000143_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000144_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000145_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000146_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000147_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000148_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000149_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000150_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000151_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000152_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000153_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000154_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000155_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000156_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000157_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000158_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000159_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000160_0.png
+[
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000137_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000137_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000138_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000139_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000140_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000141_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000142_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000143_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000144_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000145_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000146_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000147_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000148_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000149_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000150_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000151_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000152_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000153_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000154_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000155_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000156_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000157_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000158_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000159_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_2.00/000160_0.png'
+]
+Running diffusion for novel view sequence 3.0
+Running diffusion for novel view sequence 3.0
+08:11:43 Rendering LiDAR condition 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81/81  0:00:00 < 0:00:00   ?  it/s                                                                     base_processor.py:134
+
+draw condition camera img
+/iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction/condition
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000080_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000080_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000081_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000082_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000083_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000084_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000085_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000086_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000087_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000088_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000089_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000090_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000091_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000092_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000093_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000094_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000095_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000096_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000097_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000098_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000099_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000100_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000101_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000102_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000103_0.png
+[
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000080_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000080_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000081_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000082_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000083_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000084_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000085_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000086_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000087_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000088_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000089_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000090_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000091_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000092_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000093_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000094_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000095_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000096_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000097_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000098_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000099_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000100_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000101_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000102_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000103_0.png'
+]
+draw condition camera img
+/iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction/condition
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000099_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000100_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000101_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000102_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000103_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000104_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000105_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000106_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000107_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000108_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000109_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000110_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000111_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000112_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000113_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000114_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000115_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000116_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000117_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000118_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000119_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000120_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000121_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000122_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000123_0.png
+[
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000099_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000100_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000101_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000102_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000103_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000104_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000105_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000106_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000107_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000108_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000109_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000110_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000111_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000112_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000113_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000114_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000115_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000116_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000117_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000118_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000119_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000120_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000121_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000122_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000123_0.png'
+]
+draw condition camera img
+/iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction/condition
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000119_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000120_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000121_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000122_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000123_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000124_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000125_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000126_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000127_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000128_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000129_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000130_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000131_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000132_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000133_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000134_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000135_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000136_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000137_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000138_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000139_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000140_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000141_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000142_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000143_0.png
+[
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000119_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000120_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000121_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000122_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000123_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000124_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000125_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000126_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000127_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000128_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000129_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000130_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000131_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000132_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000133_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000134_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000135_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000136_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000137_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000138_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000139_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000140_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000141_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000142_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000143_0.png'
+]
+draw condition camera img
+/iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction/condition
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000137_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000137_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000138_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000139_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000140_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000141_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000142_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000143_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000144_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000145_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000146_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000147_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000148_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000149_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000150_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000151_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000152_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000153_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000154_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000155_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000156_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000157_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000158_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000159_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000160_0.png
+[
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000137_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000137_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000138_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000139_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000140_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000141_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000142_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000143_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000144_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000145_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000146_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000147_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000148_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000149_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000150_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000151_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000152_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000153_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000154_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000155_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000156_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000157_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000158_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000159_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000160_0.png'
+]
+draw condition camera img
+/iag_ad_01/ad/lijianfeng/GS/street_crafter/output/waymo/sensetime_val_2025_04_26_09_21_06_interaction/condition
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000137_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000137_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000138_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000139_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000140_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000141_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000142_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000143_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000144_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000145_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000146_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000147_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000148_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000149_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000150_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000151_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000152_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000153_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000154_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000155_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000156_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000157_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000158_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000159_0.png
+guide seq path:  /iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000160_0.png
+[
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render/000137_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000137_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000138_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000139_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000140_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000141_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000142_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000143_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000144_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000145_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000146_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000147_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000148_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000149_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000150_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000151_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000152_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000153_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000154_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000155_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000156_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000157_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000158_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000159_0.png',
+    '/iag_ad_01/ad/lijianfeng/GS/street_crafter/data/sensetime/2025_04_26_09_21_06_interaction/lidar/color_render_shift_3.00/000160_0.png'
+]
