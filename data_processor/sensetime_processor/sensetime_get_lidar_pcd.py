@@ -280,8 +280,8 @@ def save_lidar(root_dir, seq_path, seq_save_dir):
     
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--root_dir', type=str, default='/nas/home/yanyunzhi/waymo/training')
-    parser.add_argument('--save_dir', type=str, default='./test_data/')
+    parser.add_argument('--root_dir', type=str, default='/iag_ad_01/ad/yuanweizhong/datasets/senseauto/2024_09_08_07_53_23_pathway_pilotGtParser')
+    parser.add_argument('--save_dir', type=str, default='/iag_ad_01/ad/yuanweizhong/huzeyu/street_crafter/data')
     parser.add_argument('--skip_existing', action='store_true')
     args = parser.parse_args()
     

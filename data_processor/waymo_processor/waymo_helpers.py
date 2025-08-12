@@ -76,6 +76,7 @@ def get_object(object_list, name):
 
 def load_track(seq_save_dir):
     track_dir = os.path.join(seq_save_dir, 'track')
+    # breakpoint()
     assert os.path.exists(track_dir), f"Track directory {track_dir} does not exist."
 
     track_info_path = os.path.join(track_dir, 'track_info.pkl')
