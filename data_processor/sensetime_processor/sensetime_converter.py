@@ -23,7 +23,7 @@ from download_interface import download_file, upload_file
 
 # petrel_conf_path = '/iag_ad_01/ad/lijianfeng/petreloss_local.conf'
 # backend = Client(conf_path=petrel_conf_path)
-print('petrel backend init done')
+# print('petrel backend init done')
 
 class Calibration:
     def __init__(self, extrinsic, intrinsic, width, height):
@@ -37,10 +37,10 @@ def parse_seq_rawdata(process_list, seq_path, seq_save_dir, skip_existing):
     print(f'Saving to {seq_save_dir}')
     os.makedirs(seq_save_dir, exist_ok=True)
 
-    s3_prefix_path = os.path.join(seq_path, 's3_prefix.txt')
-    with open(s3_prefix_path, 'r') as f:
-        s3_prefix = f.readline()
-        s3_prefix = s3_prefix.strip()
+    # s3_prefix_path = os.path.join(seq_path, 's3_prefix.txt')
+    # with open(s3_prefix_path, 'r') as f:
+    #     s3_prefix = f.readline()
+    #     s3_prefix = s3_prefix.strip()
 
     # camera calibration 
     intrinsic_save_dir = os.path.join(seq_save_dir, 'intrinsics')
@@ -97,16 +97,18 @@ def parse_seq_rawdata(process_list, seq_path, seq_save_dir, skip_existing):
         for frame_id, sensor_frame in tqdm(enumerate(sensor_sync)):
             sync_file = dict()
             for key in sensor_frame:
-                timestamp['FRAME'][str(frame_id).zfill(6)] = float(key)/1e6
-                lidar_file_rel_path = sensor_frame[key]['top_center_lidar']
-                sync_file['top_center_lidar'] = lidar_file_rel_path
+                if "top_center_lidar" in sensor_frame[key]:
 
-                for camera_name in camera_names_dict:
-                    cam_rel_path = sensor_frame[key][camera_name]
-                    cam_ts = float(os.path.basename(cam_rel_path).split('.')[0])/1e6
-                    cam_file_name = str(frame_id).zfill(6)+'_'+camera_names_dict[camera_name]
-                    sync_file[camera_name] = cam_rel_path
-                    timestamp[camera_name][cam_file_name] = cam_ts
+                    timestamp['FRAME'][str(frame_id).zfill(6)] = float(key)/1e6
+                    lidar_file_rel_path = sensor_frame[key]['top_center_lidar']
+                    sync_file['top_center_lidar'] = lidar_file_rel_path
+
+                    for camera_name in camera_names_dict:
+                        cam_rel_path = sensor_frame[key][camera_name]
+                        cam_ts = float(os.path.basename(cam_rel_path).split('.')[0])/1e6
+                        cam_file_name = str(frame_id).zfill(6)+'_'+camera_names_dict[camera_name]
+                        sync_file[camera_name] = cam_rel_path
+                        timestamp[camera_name][cam_file_name] = cam_ts
 
             sync_files[str(frame_id).zfill(6)] = sync_file
             
@@ -181,34 +183,34 @@ def parse_seq_rawdata(process_list, seq_path, seq_save_dir, skip_existing):
         json.dump(updated_timestamps, f, indent=1)
 
 
-    # # images
-    image_save_dir = os.path.join(seq_save_dir, 'images')
-    if 'image' not in process_list:
-        print("Skipping image processing...")
-    elif os.path.exists(image_save_dir) and skip_existing:
-        print('Images already exist, skipping...')
-    else:
-        os.makedirs(image_save_dir, exist_ok=True)      
-        print("Processing image data...")
+    # # # images
+    # image_save_dir = os.path.join(seq_save_dir, 'images')
+    # if 'image' not in process_list:
+    #     print("Skipping image processing...")
+    # elif os.path.exists(image_save_dir) and skip_existing:
+    #     print('Images already exist, skipping...')
+    # else:
+    #     os.makedirs(image_save_dir, exist_ok=True)      
+    #     print("Processing image data...")
 
-        camera_timestamp = dict()
-        for frame_name in tqdm(list(updated_sync_files.keys())):
-            for camera_name in camera_names_dict:
-                camera_file_path = updated_sync_files[frame_name][camera_name]
-                camera_file_name = os.path.basename(camera_file_path).split('.')[0]
-                camera_ts = float(camera_file_name)/1e6
+    #     camera_timestamp = dict()
+    #     for frame_name in tqdm(list(updated_sync_files.keys())):
+    #         for camera_name in camera_names_dict:
+    #             camera_file_path = updated_sync_files[frame_name][camera_name]
+    #             camera_file_name = os.path.basename(camera_file_path).split('.')[0]
+    #             camera_ts = float(camera_file_name)/1e6
                 
-                s3_path = 'ad_system_common_hs:'+os.path.join(s3_prefix, camera_file_path)
-                img_save_path = os.path.join(image_save_dir, frame_name+'_'+camera_names_dict[camera_name]+'.jpg')
-                if not os.path.exists(img_save_path):
-                    download_file(s3_path, img_save_path, backend, strict=True)
+    #             s3_path = 'ad_system_common_hs:'+os.path.join(s3_prefix, camera_file_path)
+    #             img_save_path = os.path.join(image_save_dir, frame_name+'_'+camera_names_dict[camera_name]+'.jpg')
+    #             if not os.path.exists(img_save_path):
+    #                 download_file(s3_path, img_save_path, backend, strict=True)
 
-                camera_timestamp[frame_name+'_'+camera_names_dict[camera_name]] = camera_ts
-                updated_sync_files[frame_name][camera_name] = img_save_path
+    #             camera_timestamp[frame_name+'_'+camera_names_dict[camera_name]] = camera_ts
+    #             updated_sync_files[frame_name][camera_name] = img_save_path
         
-        camera_timestamp_save_path = os.path.join(seq_save_dir, 'images', 'timestamps.json')
-        with open(camera_timestamp_save_path, 'w') as f:
-            json.dump(camera_timestamp, f, indent=1)
+    #     camera_timestamp_save_path = os.path.join(seq_save_dir, 'images', 'timestamps.json')
+    #     with open(camera_timestamp_save_path, 'w') as f:
+    #         json.dump(camera_timestamp, f, indent=1)
 
     # trajectory
     track_dir = os.path.join(seq_save_dir, "track")
@@ -237,14 +239,15 @@ def parse_seq_rawdata(process_list, seq_path, seq_save_dir, skip_existing):
         
         for frame_name in tqdm(list(updated_sync_files.keys())):
             frame_ts = updated_timestamps['FRAME'][frame_name]
-            lidar_file_name = os.path.basename(updated_sync_files[frame_name]['top_center_lidar'])
-            
+            lidar_file_name = os.path.splitext(os.path.basename(updated_sync_files[frame_name]['top_center_lidar']))[0]
+            lidar_file_name = lidar_file_name[:-3]  + '.' + lidar_file_name[-3:] + '.bin'
+
             track_info_cur_frame = dict()
             track_camera_visible_cur_frame = dict()
             images = dict()
 
             for camera_name in camera_names_dict.keys():
-                img_path = updated_sync_files[frame_name][camera_name]
+                img_path = os.path.join(seq_path,updated_sync_files[frame_name][camera_name])
                 img = np.array(Image.open(img_path)) 
                 images[camera_name] = img
                 track_camera_visible_cur_frame[camera_name] = []
@@ -400,7 +403,7 @@ def parse_seq_rawdata(process_list, seq_path, seq_save_dir, skip_existing):
 
 
         # save visualization        
-        imageio.mimwrite(os.path.join(track_dir, "track_vis.mp4"), track_vis_imgs, fps=24)
+        # imageio.mimwrite(os.path.join(track_dir, "track_vis.mp4"), track_vis_imgs, fps=24)
         
         # save track info
         with open(os.path.join(track_dir, "track_info.pkl"), 'wb') as f:
@@ -468,8 +471,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--process_list', type=str, nargs='+', default=['pose', 'calib', 'image', 'track', 'track_old', 'lidar', 'dynamic'])
     # parser.add_argument('--process_list', type=str, nargs='+', default=['pose', 'calib', 'image', 'track'])
-    parser.add_argument('--root_dir', type=str, default='/nas/home/yanyunzhi/waymo/training')
-    parser.add_argument('--save_dir', type=str, default='./test_data/')
+    parser.add_argument('--root_dir', type=str, default='/iag_ad_01/ad/yuanweizhong/datasets/senseauto/2024_09_08_07_53_23_pathway_pilotGtParser')
+    parser.add_argument('--save_dir', type=str, default='/iag_ad_01/ad/yuanweizhong/huzeyu/street_crafter/data')
     parser.add_argument('--skip_existing', action='store_true')
     args = parser.parse_args()
     

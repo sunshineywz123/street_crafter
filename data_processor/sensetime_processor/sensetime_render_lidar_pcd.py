@@ -307,6 +307,7 @@ def main():
     args = parser.parse_args()
     data_dir = args.data_dir
     dataset_projector = SensetimeLiDARRenderer(args)
+    breakpoint()
     dataset_projector.render_one(data_dir)
 
 
