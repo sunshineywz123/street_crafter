@@ -176,8 +176,9 @@ def save_lidar(seq_save_dir):
     
     image_dir = os.path.join(seq_save_dir, 'images')
     lidar_depth_dir = os.path.join(seq_save_dir, 'lidar/depth')
-    num_frames = len(sorted([os.path.join(image_dir, x) for x in os.listdir(image_dir) if x.endswith('.jpg')]))
+    num_frames = len(sorted([os.path.join(image_dir, x) for x in os.listdir(image_dir) if x.endswith('.jpg')])) 
     
+    # breakpoint()
     moge_dir = os.path.join(seq_save_dir, 'moge')
     os.makedirs(moge_dir, exist_ok=True)
     moge_dir_background = os.path.join(moge_dir, 'background')
@@ -297,9 +298,7 @@ def save_lidar(seq_save_dir):
             height = lidar_box['height']
             width = lidar_box['width']
             length = lidar_box['length']
-            # 获取当前帧在轨迹中的索引
             pose_idx = trajectory[track_id]['frames'].index(f"{frame_id:06d}")
-            # 获取车辆坐标系下的位姿
             pose_vehicle = trajectory[track_id]['poses_vehicle'][pose_idx]
 
             # 将点云坐标转换为齐次坐标

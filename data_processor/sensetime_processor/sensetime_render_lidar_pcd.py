@@ -309,7 +309,5 @@ def main():
     dataset_projector = SensetimeLiDARRenderer(args)
     dataset_projector.render_one(data_dir)
 
-
-
 if __name__ == '__main__':
     main()

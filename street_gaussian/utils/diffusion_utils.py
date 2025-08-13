@@ -246,6 +246,17 @@ class WaymoDiffusionRunner(DiffusionRunner):
             render_mask_seq_all = render_result['render_mask_seq'].detach()  # (f, 1, h, w)
             assert render_seq_all.shape[0] == num_frames, f'Render sequence should have {num_frames} frames'
             assert render_mask_seq_all.shape[0] == num_frames, f'Render mask sequence should have {num_frames} frames'
+            # draw render
+            print('draw render img')
+            for idx in render_seq_all.shape[0]:
+                render_tensor = render_seq_all[idx]
+                render_img = (render_tensor.permute(1, 2, 0) * 255).byte().cpu().numpy()
+                render_img = cv2.cvtColor(render_img, cv2.COLOR_RGB2BGR)
+                render_save_dir = os.path.join(cfg.model_path, 'render')
+                print(render_save_dir)
+                os.makedirs(render_save_dir, exist_ok=True)
+                save_path = os.path.join(render_save_dir, f'{idx}.png')
+                cv2.imwrite(save_path, render_img)
 
         filled = torch.zeros(num_frames, dtype=torch.bool)
         diffusion_result = torch.zeros((num_frames, 3, self.target_height, self.target_width), device='cuda')
@@ -260,6 +271,16 @@ class WaymoDiffusionRunner(DiffusionRunner):
             delta_frames = np.abs(train_frames - start_frame)
             condition_idx = np.argmin(delta_frames)
             condition_camera = train_cameras[condition_idx]
+            # draw condition camera
+            print('draw condition camera img')
+            condition_img = (condition_camera.original_image.permute(1, 2, 0) * 255).byte().cpu().numpy()
+            condition_img = cv2.cvtColor(condition_img, cv2.COLOR_RGB2BGR)
+            condition_save_dir = os.path.join(cfg.model_path, 'condition')
+            print(condition_save_dir)
+            os.makedirs(condition_save_dir, exist_ok=True)
+            save_path = os.path.join(condition_save_dir, f'{condition_idx}.png')
+            cv2.imwrite(save_path, condition_img)
+
             condition_rgb_path = condition_camera.meta['guidance_rgb_path']
             condition_mask_path = condition_camera.meta['guidance_mask_path']
             guide_seq_path_sample = [condition_rgb_path] + guide_rgb_path_all[start_idx:end_idx]
@@ -270,6 +291,7 @@ class WaymoDiffusionRunner(DiffusionRunner):
             for i in range(len(guide_seq_path_sample)):
                 guide_seq_path = guide_seq_path_sample[i]
                 guide_mask_seq_path = guide_mask_seq_path_sample[i]
+                print('guide seq path: ', guide_seq_path)
                 guide_seq = self.preprocess_image(guide_seq_path, self.guide_preprocessor).to('cuda', non_blocking=True)  # type: ignore
                 guide_mask_seq = self.preprocess_image(guide_mask_seq_path, self.default_preprocessor).to('cuda', non_blocking=True)[..., :1, :, :]  # type: ignore
                 guide_seq_sample.append(guide_seq)
@@ -342,7 +364,8 @@ class WaymoDiffusionRunner(DiffusionRunner):
 
 DiffusionRunnerType = {
     "Waymo": WaymoDiffusionRunner,
-    "Pandaset": WaymoDiffusionRunner
+    "Pandaset": WaymoDiffusionRunner,
+    "Sensetime": WaymoDiffusionRunner
 }
 
 

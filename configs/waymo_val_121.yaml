@@ -75,7 +75,7 @@ optim:
 diffusion:
     use_diffusion: True
     config_path: video_diffusion/configs/inference/waymo_high_res.yaml
-    ckpt_path: video_diffusion/ckpts/vista_condition_high_res_mix_v2.safetensors
+    ckpt_path: /iag_ad_01/ad/yuanweizhong/ckpt/vista_condition_high_res_mix_v2.safetensors
     height: 576
     width: 1024
     sample_iterations: [7000, 12000, 17000, 22000]

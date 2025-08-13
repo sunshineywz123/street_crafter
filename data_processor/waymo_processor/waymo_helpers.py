@@ -147,25 +147,25 @@ def load_calibration(datadir):
 
 
 # load ego pose and camera calibration(extrinsic and intrinsic)
-def load_camera_info(datadir):
+def load_camera_info(datadir, num_cam=5):
     ego_pose_dir = os.path.join(datadir, 'ego_pose')
     extrinsics_dir = os.path.join(datadir, 'extrinsics')
     intrinsics_dir = os.path.join(datadir, 'intrinsics')
 
     intrinsics = []
     extrinsics = []
-    for i in range(5):
+    for i in range(num_cam):
         intrinsic = np.loadtxt(os.path.join(intrinsics_dir, f"{i}.txt"))
         fx, fy, cx, cy = intrinsic[0], intrinsic[1], intrinsic[2], intrinsic[3]
         intrinsic = np.array([[fx, 0, cx], [0, fy, cy], [0, 0, 1]])
         intrinsics.append(intrinsic)
 
-    for i in range(5):
+    for i in range(num_cam):
         cam_to_ego = np.loadtxt(os.path.join(extrinsics_dir, f"{i}.txt"))
         extrinsics.append(cam_to_ego)
 
     ego_frame_poses = []
-    ego_cam_poses = [[] for i in range(7)]
+    ego_cam_poses = [[] for i in range(num_cam)]
     ego_pose_paths = sorted(os.listdir(ego_pose_dir))
     for ego_pose_path in ego_pose_paths:
 
@@ -183,7 +183,7 @@ def load_camera_info(datadir):
     center_point = np.mean(ego_frame_poses[:, :3, 3], axis=0)
     ego_frame_poses[:, :3, 3] -= center_point  # [num_frames, 4, 4]
 
-    ego_cam_poses = [np.array(ego_cam_poses[i]) for i in range(5)]
+    ego_cam_poses = [np.array(ego_cam_poses[i]) for i in range(num_cam)]
     ego_cam_poses = np.array(ego_cam_poses)
     ego_cam_poses[:, :, :3, 3] -= center_point  # [5, num_frames, 4, 4]
     return intrinsics, extrinsics, ego_frame_poses, ego_cam_poses

@@ -11,3 +11,4 @@ python waymo_processor/waymo_get_moge_pcd.py --data_dir /iag_ad_01/ad/yuanweizho
 
 cd /iag_ad_01/ad/yuanweizhong/huzeyu/street_crafter
 python /iag_ad_01/ad/yuanweizhong/huzeyu/sc/render.py --config ./configs/waymo_val_049.yaml mode diffusion
+python render.py --config /iag_ad_01/ad/yuanweizhong/huzeyu/sc/configs/sensetime_val.yaml mode diffusion

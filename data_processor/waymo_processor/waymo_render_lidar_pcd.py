@@ -174,7 +174,7 @@ class WaymoLiDARRenderer(object):
         # load tracks
         track_info, _, trajectory = load_track(scene_dir)
 
-        lidar_dir = os.path.join(scene_dir, 'lidar')
+        lidar_dir = os.path.join(scene_dir, 'moge')
         lidar_render_dir = os.path.join(lidar_dir, self.save_dir)
 
         os.makedirs(lidar_render_dir, exist_ok=True)

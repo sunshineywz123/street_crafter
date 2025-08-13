@@ -21,6 +21,17 @@ from typing import Dict, List, Optional, Tuple, TypedDict
 np.set_printoptions(precision=4, suppress=True)
 from copy import deepcopy
 
+# only copied center_cemera_fov120 to the traget dir, so use a temp camera_name_dict
+camera_names_dict_1 = {
+    'center_camera_fov120': '0', 
+    # 'center_camera_fov30': '1',
+    # 'left_front_camera': '2', 
+    # 'right_front_camera': '3',
+    # 'rear_camera': '4',
+    # 'left_rear_camera': '5',
+    # 'right_rear_camera': '6',
+}
+
 def overlay_depth_on_image(image, depth, save_path, alpha=0.6):
     """
     将深度图叠加在 RGB 图像上。
@@ -70,7 +81,7 @@ def colorize_point_cloud_with_occlusion(
 
     points_hom = np.hstack([points_car, np.ones((N, 1))])  # (N, 4)
 
-    for camera_name in camera_names_dict:
+    for camera_name in camera_names_dict_1:
         view_image = images[camera_name]
         view_intrinsic = intrinsics[camera_name]
         T_vc = extrinsics[camera_name]
@@ -167,8 +178,8 @@ def save_lidar(root_dir, seq_path, seq_save_dir):
         bgr_points = np.asarray(bgr_lidar.points)
 
         images = dict()
-        for camera_name in camera_names_dict:
-            img_path = os.path.join(image_dir, frame_id+'_'+camera_names_dict[camera_name]+'.jpg')
+        for camera_name in camera_names_dict_1:
+            img_path = os.path.join(image_dir, frame_id+'_'+camera_names_dict_1[camera_name]+'.jpg')
             img = np.array(Image.open(img_path)) 
             images[camera_name] = img
 
@@ -185,13 +196,13 @@ def save_lidar(root_dir, seq_path, seq_save_dir):
         storePly(os.path.join(lidar_dir_background, frame_id+'.ply'), bgr_points, bgr_rgb, bgr_mask[:,None])
 
         # save depth
-        for camera_name in camera_names_dict:
+        for camera_name in camera_names_dict_1:
             depth = depths[camera_name]
-            depth_path = os.path.join(lidar_dir_depth, frame_id+'_'+camera_names_dict[camera_name]+'.npz')
+            depth_path = os.path.join(lidar_dir_depth, frame_id+'_'+camera_names_dict_1[camera_name]+'.npz')
             valid_mask = depth > 0
             valid_depth = depth[valid_mask]
             np.savez_compressed(depth_path, value=valid_depth, mask=valid_mask)
-            # depth_viz_path = os.path.join(lidar_dir_depth, frame_id+'_'+camera_names_dict[camera_name]+'.png')
+            # depth_viz_path = os.path.join(lidar_dir_depth, frame_id+'_'+camera_names_dict_1[camera_name]+'.png')
             # overlay_depth_on_image(images[camera_name], depth, depth_viz_path)
 
         # color pvb point cloud 

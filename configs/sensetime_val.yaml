@@ -1,9 +1,10 @@
 parent_cfg: configs/waymo_val_121.yaml
-source_path: /iag_ad_01/ad/yuanweizhong/lijianfeng/street_crafter/data/waymo/176
-exp_name: waymo_val_176
+source_path: ./data/
+exp_name: sensetime_val_2025_04_26_09_21_06_interaction
 
 data:
     selected_frames: [80, 160]
+    type: Sensetime
 
 model:
     nsg:

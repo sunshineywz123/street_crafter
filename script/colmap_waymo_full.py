@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.getcwd())
+
 from street_gaussian.utils.colmap_utils import read_extrinsics_binary, qvec2rotmat
 from street_gaussian.utils.data_utils import get_val_frames
 from street_gaussian.utils.waymo_utils import load_camera_info
@@ -236,7 +240,7 @@ def run_colmap_waymo(result):
     cam_rigid["ref_camera_id"] = ref_camera_id
     rigid_cam_list = []
 
-    _, extrinsics, _, _ = load_camera_info(cfg.source_path)
+    _, extrinsics, _, _ = load_camera_info(cfg.source_path, 5)
     for cam_id in unique_cams:
         rigid_cam = dict()
         rigid_cam["camera_id"] = cam_id

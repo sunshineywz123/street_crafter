@@ -36,12 +36,12 @@ _label2camera = {
 
 camera_names_dict = {
     'center_camera_fov120': '0', 
-    'center_camera_fov30': '1',
+    # 'center_camera_fov30': '1',
     'left_front_camera': '2', 
     'right_front_camera': '3',
-    'rear_camera': '4',
-    'left_rear_camera': '5',
-    'right_rear_camera': '6',
+    # 'rear_camera': '4',
+    # 'left_rear_camera': '5',
+    # 'right_rear_camera': '6',
 }
 
 waymo_track2label = {"vehicle": 0, "pedestrian": 1, "cyclist": 2, "sign": 3, "misc": -1}

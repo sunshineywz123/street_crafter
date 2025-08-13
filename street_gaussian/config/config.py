@@ -141,7 +141,7 @@ cfg.data.use_semantic = False
 cfg.data.use_mono_depth = False
 cfg.data.use_mono_normal = False
 cfg.data.use_colmap = True
-cfg.data.delta_frames = 10
+cfg.data.delta_frames = 50
 # data.load_pcd_from: Load the initialization point cloud from a previous experiment without generation.
 # data.extent: radius of the scene, we recommend 10 - 20 meters.
 # data.sphere_scale: Scale the sphere radius by this factor.
