@@ -1,5 +1,5 @@
 parent_cfg: configs/waymo_val_121.yaml
-source_path: ./data/
+source_path: /iag_ad_01/ad/yuanweizhong/huzeyu/sc/data
 exp_name: waymo_val_049
 
 data:

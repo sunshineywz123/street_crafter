@@ -15,7 +15,133 @@ from moge.model.v2 import MoGeModel # type: ignore
 moge_model = MoGeModel.from_pretrained("/iag_ad_01/ad/yuanweizhong/ckpt/models--Ruicheng--moge-2-vitl/snapshots/39c4d5e957afe587e04eec59dc2bcc3be5ecd968/model.pt").cuda()
 
 from tqdm import tqdm
+import torch_cluster
 
+from typing import Dict, Tuple
+def perform_weighted(
+    sparse_ori : torch.Tensor, pred_ori : torch.Tensor, dists : torch.Tensor
+) -> Tuple[torch.Tensor, ...]:
+    """
+    Perform weighted operations on input tensors using distance-based weights. A diagonal 
+    matrix is created from the normalized weights and used to weight the inputs.
+    
+    Notes:
+        - Weights are calculated as the inverse of the distances.
+        - Weights are normalized to ensure they sum to 1.
+
+    Args:
+        sparse_ori (torch.Tensor): Sparse original map.
+        pred_ori (torch.Tensor): Predicted map.
+        dists (torch.Tensor): Distances used for weight calculation.
+
+    Returns:
+        Tuple: Containing two tensors:
+            - sparse_weighted: The weighted version of the sparse original map.
+            - pred_weighted: The weighted version of the predicted map.
+    """
+    
+    weights = 1 / dists
+    wsum = weights.sum(dim=1, keepdim=True)
+    weights = weights / wsum
+    W = torch.diag_embed(weights)
+    
+    pred_weighted = W @ pred_ori
+    sparse_weighted = W @ sparse_ori.unsqueeze(-1)
+    return sparse_weighted, pred_weighted
+def calc_scale_shift(k_sparse_targets, k_pred_targets, currk_dists=None, knn=False):
+    # 为预测目标添加一个小的随机扰动,避免数值不稳定性
+    k_pred_targets += torch.rand(*k_pred_targets.shape, device=k_pred_targets.device) * 1e-5
+    # 构建最小二乘法的输入矩阵X,包含预测目标和全1向量
+    X = torch.stack([k_pred_targets, torch.ones_like(k_pred_targets, device=k_pred_targets.device)], dim=2)
+    
+    # 对KNN点进行加权处理
+    if knn > 0: k_sparse_targets, X = perform_weighted(k_sparse_targets, X, currk_dists)
+    # 如果预测目标有多个样本,则扩展稀疏目标的维度
+    elif k_pred_targets.shape[0] > 1: k_sparse_targets = k_sparse_targets.unsqueeze(-1)
+    
+    # 使用最小二乘法求解线性方程组,得到缩放和平移参数
+    solution = torch.linalg.lstsq(X, k_sparse_targets)
+    # 提取缩放和平移参数,并去除多余的维度
+    scale, shift = solution[0][:, 0].squeeze(), solution[0][:, 1].squeeze()
+    
+    return scale, shift
+def knn_aligns(sparse_disparities, pred_disparities, sparse_masks, complete_masks, K) -> Tuple[torch.Tensor, ...]:
+    """
+    Perform K-Nearest Neighbors (KNN) alignment on sparse and predicted disparities.
+
+    Args:
+        sparse_disparities (torch.Tensor): Disparities for sparse map points.
+        pred_disparities (torch.Tensor): Predicted disparities for sparse map points.
+        sparse_masks (torch.Tensor): Indicating which points in the sparse map are valid.
+        complete_masks (torch.Tensor): Indicating which points in the map to be completed.
+        K (int): The number of nearest neighbors to find for each map point.
+
+    Returns:
+        Tuple: Containing three tensors:
+            - dists: The Euclidean distances from each sparse point to its K nearest neighbors.
+            - k_sparse_targets: Disparities of the K nearest neighbors from the sparse data.
+            - k_pred_targets: Disparities of the K nearest neighbors from the predicted data.
+    """
+    
+    # Coordinates are processed to ensure compatibility with the KNN function.
+    batch_sparse = torch.nonzero(sparse_masks, as_tuple=False)[..., [0, 2, 1]].float() # [N, 3] (b, x, y)
+    batch_complete = torch.nonzero(complete_masks, as_tuple=False)[..., [0, 2, 1]].float() # [M, 3] (b, x, y)
+    
+    batch_x, batch_y = batch_sparse[:, 0].contiguous(), batch_complete[:, 0].contiguous()
+    x, y = batch_sparse[:, -2:].contiguous(), batch_complete[:, -2:].contiguous()
+    
+    # Use `torch_cluster.knn` to find K nearest neighbors.
+    knn_map = torch_cluster.knn(x=x, y=y, k=K, batch_x=batch_x, batch_y=batch_y) # [2, M * K]
+    knn_indices = knn_map[1, :].view(-1, K)
+    
+    k_sparse_targets = sparse_disparities[sparse_masks][knn_indices]
+    k_pred_targets = pred_disparities[sparse_masks][knn_indices]
+    
+    knn_coords = x[knn_indices]
+    expanded_complete_points = y.unsqueeze(dim=1).repeat(1, K, 1)
+    dists = torch.norm(expanded_complete_points - knn_coords, dim=2)
+    
+    return dists, k_sparse_targets, k_pred_targets
+def kss_completer(sparse_disparities, pred_disparities, complete_masks, sparse_masks, K=5) -> torch.Tensor:
+    """
+    Perform K-Nearest Neighbors (KNN) interpolation to complete sparse disparities.Use a batch-oriented 
+    implementation of KNN interpolation to complete the sparse disparities. We leverages "torch_cluster.knn" 
+    for acceleration and GPU memory efficiency.
+
+    Args:
+        sparse_disparities (torch.Tensor): Disparities for sparse map.
+        pred_disparities (torch.Tensor): Dredicted disparities for sparse map points.
+        complete_masks (torch.Tensor): Indicating which points in the complete map are valid.
+        sparse_masks (torch.Tensor): Indicating which points in the sparse map are valid.
+        K (int): The number of nearest neighbors to use for interpolation. Defaults to 5.
+
+    Returns:
+        The completed disparities, interpolated from the nearest neighbors.
+    """
+    
+    # Use `knn_aligns` to find the K nearest neighbors and calculate distances.
+    # 调用knn_aligns函数获取K近邻的距离、稀疏目标值和预测目标值
+    bottomk_dists, k_sparse_targets, k_pred_targets = knn_aligns(
+        sparse_disparities=sparse_disparities,
+        pred_disparities=pred_disparities,
+        sparse_masks=sparse_masks, K=K, 
+        complete_masks=complete_masks
+    )
+    
+    # 创建一个与sparse_disparities相同形状的全零张量用于存储缩放后的预测结果
+    scaled_preds = torch.zeros_like(sparse_disparities, device=sparse_disparities.device, dtype=torch.float32)
+    # 计算缩放和平移参数
+    scale, shift = calc_scale_shift(
+        k_sparse_targets=k_sparse_targets, k_pred_targets=k_pred_targets, 
+        currk_dists=bottomk_dists, knn=True
+    )
+    # 对需要完成的区域应用缩放和平移变换
+    complete_masks_depth = pred_disparities[complete_masks] * scale + shift
+    # scaled_preds[complete_masks] = torch.clamp(complete_masks_depth, min=0)
+    scaled_preds[complete_masks] = complete_masks_depth
+    # 将原始稀疏视差值填充到稀疏点位置
+    scaled_preds[sparse_masks] = sparse_disparities[sparse_masks]
+    return scaled_preds,scale,shift
 def recover_metric_depth(pred, gt, mask0):
     mask = (gt > 1e-8)
     if mask0 is not None and mask0.sum() > 0:
@@ -72,7 +198,6 @@ def save_lidar(seq_save_dir):
             pointcloud_actor[track_id]['rgb'] = []
             pointcloud_actor[track_id]['mask'] = []
     
-    num_frames = 5
     for frame_id in tqdm(range(num_frames)):
         image_path = os.path.join(image_dir, f'{frame_id:06d}_0.jpg')
         lidar_depth_path = os.path.join(lidar_depth_dir, f'{frame_id:06d}_0.npz')
@@ -112,10 +237,32 @@ def save_lidar(seq_save_dir):
         gt_depth = np.zeros_like(pred_depth_original).astype(np.float32)
         # 将激光雷达深度值填充到真实深度图中
         gt_depth[lidar_depth_mask] = lidar_depth_value
+        sparse_masks = torch.tensor([pred_depth_valid])
+        sparse_disparities=torch.tensor([gt_depth])
+        pred_disparities=torch.tensor([pred_depth_original])
+        K=5
         # 恢复预测深度图的度量尺度
-        pred_depth_aligned, a, b = recover_metric_depth(pred_depth_original, gt_depth, pred_depth_valid)
+        complete_masks = torch.ones_like(sparse_masks).to(torch.bool)
+        complete_masks[sparse_masks] = False
+        
+        # 使用KNN对齐缩放预测视差
+        scaled_preds,a,b  = kss_completer(
+            sparse_disparities=sparse_disparities,
+            pred_disparities=pred_disparities,
+            sparse_masks=sparse_masks, K=K,
+            complete_masks=complete_masks,
+        )
+        pred_depth_aligned = scaled_preds.squeeze(0).cpu().numpy()
+        # pred_depth_aligned, a, b = recover_metric_depth(pred_depth_original, gt_depth, pred_depth_valid)
         # 将预测点云转换为numpy数组并重塑为N×3的形状
-        xyzs = (pred_points * a + b).squeeze(0).cpu().numpy().reshape(-1, 3)
+        # breakpoint()
+        a_ori = torch.ones_like(scaled_preds)
+        b_ori = torch.zeros_like(scaled_preds)
+        a_ori[complete_masks] = a
+        b_ori[complete_masks] = b 
+        a = torch.nn.functional.interpolate(a_ori.unsqueeze(0), (expected_height, expected_width), mode='bilinear', align_corners=False, antialias=False).squeeze(0)
+        b = torch.nn.functional.interpolate(b_ori.unsqueeze(0), (expected_height, expected_width), mode='bilinear', align_corners=False, antialias=False).squeeze(0)
+        xyzs = (pred_points * a.unsqueeze(-1).cuda()  + b.unsqueeze(-1).cuda()).squeeze(0).cpu().numpy().reshape(-1, 3)
         # 将图像转换为numpy数组并重塑为N×3的形状
         rgbs = image.squeeze(0).permute(1, 2, 0).cpu().numpy().reshape(-1, 3)
         # 将预测掩码转换为一维numpy数组
